@@ -1,4 +1,6 @@
+using PracticeApplication.WebSite.Models;
 using PracticeApplication.WebSite.Services;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,5 +26,13 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapGet("/products", (context) =>
+{
+	var products = app.Services.GetService<JsonFileProductService>().GetProducts();
+	var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+
+	return context.Response.WriteAsync(json);
+});
+
 
 app.Run();
