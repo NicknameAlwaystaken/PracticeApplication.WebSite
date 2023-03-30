@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<JsonFileProductService>();
 builder.Services.AddControllers();
+builder.Services.AddServerSideBlazor();
 
 var app = builder.Build();
 
@@ -29,6 +30,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapControllers();
+app.MapBlazorHub();
 
 //app.MapGet("/products", (context) =>
 //{
