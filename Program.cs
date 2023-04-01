@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore;
 using PracticeApplication.WebSite.Controllers;
 using PracticeApplication.WebSite.Models;
 using PracticeApplication.WebSite.Pages;
@@ -22,7 +24,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
